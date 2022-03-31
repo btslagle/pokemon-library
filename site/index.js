@@ -1,13 +1,19 @@
 const app = document.querySelector("#app")
 const spinner = document.querySelector(".spinner")
 
+//const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
 
-function addPokemonImage(url) {
-    const img = document.createElement("img")
-    img.src = url
-    app.append(img)
+function addPokemonImage(pokemon) {
+    const div = document.createElement("div")
+   // div.classList("pokemon-listing")
+    div.innerHTML = `
+        <a href="pokemon.html?pokemon=${pokemon.name}">
+        <img src ="${pokemon.sprites.front_default}" alt= ${pokemon.name}" />
+        </a> 
+        `
+    app.append(div)
 }
-const url = "https://pokeapi.co/api/v2/pokemon?limit=50"
+const url = "https://pokeapi.co/api/v2/pokemon?limit=50&offset=700"
 fetch(url)
     .then(response => {
         return response.json()
@@ -18,7 +24,7 @@ fetch(url)
     }).then(responses => {
         spinner.classList.add("hidden")
         responses.forEach(response => {
-        addPokemonImage(response.sprites.front_default)
+            addPokemonImage(response)
         })
-})   
+    })
 
