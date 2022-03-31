@@ -1,15 +1,16 @@
-const app = document.querySelector("#app")
+const pokemonListing = document.querySelector("#app")
 const spinner = document.querySelector(".spinner")
 
 //const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
 
 function addPokemonImage(pokemon) {
     const div = document.createElement("div")
-   // div.classList("pokemon-listing")
+    // div.classList("pokemon-listing")
     div.innerHTML = `
-        <a href="pokemon.html?pokemon=${pokemon.name}">
+        <figure>
         <img src ="${pokemon.sprites.front_default}" alt= ${pokemon.name}" />
-        </a> 
+        <figcaption><a href="pokemon.html?pokemon=${pokemon.name}">${pokemon.name}</a></figcaption> 
+        </figure>
         `
     app.append(div)
 }

@@ -1,3 +1,22 @@
+
+body {
+    display:flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+}
+a {
+    color: white;
+}
+
+figure {
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0, auto;
+    flex-wrap: wrap;
+    just
+}
 .spinner {
     width: 100px;
 }
@@ -7,6 +26,10 @@
 }
 
 h1 {
-display:flex;
+display:block;
 justify-content: center;
+}
+
+div {
+margin: 30px;
 }
