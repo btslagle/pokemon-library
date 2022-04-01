@@ -1,28 +1,30 @@
-const $pokemon = document.querySelector("#pokemon-details")
+const $pokemon = document.querySelector('#pokemon')
 const $spinner = document.querySelector(".spinner")
-const ul = document.querySelector("ul")
+const ul = document.querySelector('ul')
 
 function addPokemonImage(pokemon) {
-    console.log(pokemon)
     const div = document.createElement('div')
     div.innerHTML = `
         <figure>
-        <img src ="${pokemon.sprites.front_default}" alt= ${pokemon.name}"/>
-        <figcaption>${pokemon.name}</figcaption> 
+            <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" />
+            <figcaption>${pokemon.name}</figcaption>
         </figure>
-        `
+    `
     $pokemon.append(div)
 }
-function addPokemoneAttribute(pokemon) {
-    const li = document.createElement("li")
+
+function addPokemonAbilities(pokemon) {
+    const li = document.createElement('li')
     const flavor_text = (pokemon.flavor_text_entries)
-    .find(flavor_text_entery => flavor_text_entery.language.name === 'en')
+        .find(flavor_text_entry => flavor_text_entry.language.name === 'en')
     li.innerHTML = `
         <span class="ability-name">${pokemon.name}</span>
-        <span class="ability-short-description">${pokemon.flavor_text}</span>
+        <br>
+        <span class="ability-short-description">${flavor_text.flavor_text}</span>
         `
     ul.append(li)
-}
+    }
+
 const url = new URL(window.location)
 const queryString = new URLSearchParams(url.search)
 fetch(`https://pokeapi.co/api/v2/pokemon/${queryString.get("pokemon")}`)
@@ -30,17 +32,17 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${queryString.get("pokemon")}`)
         return response.json()
     }).then(response => {
         addPokemonImage(response)
-        const abilitiesRequest = response.abilities
+        const abilitiesRequests = response.abilities
             .map(response => response.ability.url)
             .map(url => {
                 return fetch(url).then(response => response.json())
             })
         return Promise.all(abilitiesRequests)
-    }).then(responses => {
+    }).then(responses =>{
         $spinner.classList.add("hidden")
         responses.forEach(response => {
-            addPokemoneAttribute(response)
-        })
+            addPokemonAbilities(response)
+    })
     })
 
 
