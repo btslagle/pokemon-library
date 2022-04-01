@@ -2,7 +2,7 @@
 body {
     
     
-    background-color: grey;
+    background-color: black;
     color: white;
 }
 a {
@@ -44,9 +44,14 @@ text-transform: capitalize;
 
 h1 a {
 text-align: center;
-
-
+font-weight: 300;
 }
+h2 {
+    font-family: 'Alfa Slab One', cursive;
+    align-items;   
+}
+
+
 
 div {
 display:flex;
@@ -59,8 +64,12 @@ max-width: 1200px;
 
 img {
     width: 200px;
+    padding: 30px;
 }
 
 li {
-    color: white
+    color: white;
+    text-transform: capitalize;
+    font-family: 'Alfa Slab One', cursive;
+
 }
