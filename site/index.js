@@ -2,7 +2,6 @@ const pokemonListing = document.querySelector("#app")
 const spinner = document.querySelector(".spinner")
 function addPokemonImage(pokemon) {
     const div = document.createElement("div")
-   
     //const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     div.innerHTML = `
         <figure>

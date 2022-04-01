@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 body {
     display:flex;
-    justify-content: center;
-    background-color: black;
+    
+    background-color: grey;
     color: white;
 }
 a {
@@ -42,9 +42,10 @@ text-transform: capitalize;
     display:none;
 }
 
-h1 {
-display:block;
-justify-content: center;
+h1 a {
+text-align: center;
+
+
 }
 
 div {
@@ -58,4 +59,8 @@ max-width: 1200px;
 
 img {
     width: 200px;
+}
+
+li {
+    color: white
 }
