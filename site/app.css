@@ -7,7 +7,7 @@ body {
     border-top: 15px;
     border-style: solid;
     border-color: red;
-    
+    margin: 0;
 }
 
 a {
@@ -25,10 +25,10 @@ figure {
     justify-content: center;
     align-items: center;
     background-color: yellow;
-    border-radius: 50:;
-
-
+    border-radius: 12%;
+    height: 100%;
 }
+
 figcaption {
     position: absolute;
     bottom: -.01%;
@@ -37,11 +37,12 @@ figcaption {
     font-size: 20px;
     font-family: 'Alfa Slab One', cursive;
     text-transform: capitalize;
-
 }
+
 .spinner {
     width: 100px;
 }
+
 .hidden {
     display: none;
 }
@@ -51,10 +52,11 @@ h1 a {
     text-align: center;
     font-weight: 300;
     justify-content: center;
-    margin:100px;
+    margin: 60px;
     font-size: 55px;
     color: red;
 }
+
 h2 {
     font-family: 'Alfa Slab One', cursive;
     align-content: center;
@@ -70,39 +72,48 @@ div {
     align-items: center;
     justify-content: center;
     margin: auto, auto;
-    max-width: 1200px;
-
 }
+
 img {
     width: 200px;
     padding: 30px;
 }
+
 li {
     color: white;
     text-transform: capitalize;
     font-family: 'Alfa Slab One', cursive;
     margin-bottom: 35px;
-
 }
+
 br {
     margin-bottom: 8px;
 }
+
 .ability-name {
     color: red;
     font-size: 24px;
-    
 }
+
 .ability-short-description {
-  color: yellow;
-
+    color: yellow;
 }
 
-#pokemon {
+#pokemon-details {
     display: flex;
     flex-direction: row-reverse;
-   
+    border-top: 12px;
+    border-color: red;
+    border-style: solid;
+    width: 100%;
 }
 
-#app {
-    margin-left: 75px;
+#abillities {
+    margin-top: 12px;
 }
+
+header {
+    text-align: center;
+    margin-bottom: 55px;
+}
+

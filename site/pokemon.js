@@ -1,15 +1,15 @@
-const $pokemon = document.querySelector('#pokemon')
+const $pokemon = document.querySelector('#pokemon-details')
 const $spinner = document.querySelector(".spinner")
 const ul = document.querySelector('ul')
 
 function addPokemonImage(pokemon) {
     const div = document.createElement('div')
-    div.innerHTML = `
-        <figure>
-            <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" />
-            <figcaption>${pokemon.name}</figcaption>
-        </figure>
-    `
+        div.innerHTML = `
+            <figure>
+                <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" />
+                <figcaption>${pokemon.name}</figcaption>
+            </figure>
+        `
     $pokemon.append(div)
 }
 function addPokemonAbilities(pokemon) {
@@ -41,7 +41,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${queryString.get("pokemon")}`)
         responses.forEach(response => {
             addPokemonAbilities(response)
         })
-    })
+})
 
 
 

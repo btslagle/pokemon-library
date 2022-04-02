@@ -1,21 +1,21 @@
-const pokemonListing = document.querySelector("#app")
+const pokemonListing = document.querySelector("#pokemon-listing")
 const spinner = document.querySelector(".spinner")
 function addPokemonImage(pokemon) {
     const div = document.createElement("div")
-    //const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     div.innerHTML = `
         <figure>
         <img src ="${pokemon.sprites.front_default}" alt= ${pokemon.name}" />
         <figcaption><a href="pokemon.html?pokemon=${pokemon.name}">${pokemon.name}</a></figcaption> 
         </figure>
         `
-    app.append(div)
+    pokemonListing.append(div)
 }
-const url = "https://pokeapi.co/api/v2/pokemon?limit=50&offset=700"
+let url = "https://pokeapi.co/api/v2/pokemon?limit=50&offset=345"
 fetch(url)
     .then(response => {
         return response.json()
     }).then(parsedResponse => {
+        console.log(parsedResponse)
         const urls = parsedResponse.results.map(result => result.url)
         const fetches = urls.map(url => fetch(url).then(response => response.json()))
         return Promise.all(fetches)
@@ -26,3 +26,8 @@ fetch(url)
         })
     })
 
+    function random() {
+        return Math.floor(Math.random()*100) +1
+    }    
+   
+    
