@@ -12,7 +12,6 @@ function addPokemonImage(pokemon) {
     `
     $pokemon.append(div)
 }
-
 function addPokemonAbilities(pokemon) {
     const li = document.createElement('li')
     const flavor_text = (pokemon.flavor_text_entries)
@@ -23,8 +22,7 @@ function addPokemonAbilities(pokemon) {
         <span class="ability-short-description">${flavor_text.flavor_text}</span>
         `
     ul.append(li)
-    }
-
+}
 const url = new URL(window.location)
 const queryString = new URLSearchParams(url.search)
 fetch(`https://pokeapi.co/api/v2/pokemon/${queryString.get("pokemon")}`)
@@ -38,11 +36,11 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${queryString.get("pokemon")}`)
                 return fetch(url).then(response => response.json())
             })
         return Promise.all(abilitiesRequests)
-    }).then(responses =>{
+    }).then(responses => {
         $spinner.classList.add("hidden")
         responses.forEach(response => {
             addPokemonAbilities(response)
-    })
+        })
     })
 
 
