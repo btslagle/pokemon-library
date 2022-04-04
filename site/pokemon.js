@@ -44,7 +44,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${queryString.get("pokemon")}`)
             .catch((error) => {
                 const $p = document.createElement('p');
                 $p.textContent = "Something went wrong!";
-                document.querySelector('#app').append($p);
+                document.querySelector('#pokemon-details').append($p);
             })
 })
 
