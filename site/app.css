@@ -55,6 +55,7 @@ h1 a {
     margin: 60px;
     font-size: 55px;
     color: red;
+    text-decoration: underline;
 }
 
 h2 {
