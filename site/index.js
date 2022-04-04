@@ -10,7 +10,9 @@ function addPokemonImage(pokemon) {
         `
     pokemonListing.append(div)
 }
-let url = "https://pokeapi.co/api/v2/pokemon?limit=50&offset=345"
+
+
+let url = "https://pokeapi.co/api/v2/pokemon?limit=50&offset=400"
 fetch(url)
     .then(response => {
         return response.json()
@@ -24,5 +26,11 @@ fetch(url)
         responses.forEach(response => {
             addPokemonImage(response)
         })
+        .catch((error) => {
+            const $p = document.createElement('p');
+            $p.textContent = "Something went wrong!";
+            document.querySelector('#app').append($p);
+        })    
+
     })
 

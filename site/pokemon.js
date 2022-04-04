@@ -41,6 +41,11 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${queryString.get("pokemon")}`)
         responses.forEach(response => {
             addPokemonAbilities(response)
         })
+            .catch((error) => {
+                const $p = document.createElement('p');
+                $p.textContent = "Something went wrong!";
+                document.querySelector('#app').append($p);
+            })
 })
 
 
