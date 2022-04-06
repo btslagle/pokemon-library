@@ -1,5 +1,6 @@
 const pokemonListing = document.querySelector("#pokemon-listing")
 const spinner = document.querySelector(".spinner")
+
 function addPokemonImage(pokemon) {
     const div = document.createElement("div")
     div.innerHTML = `
@@ -10,28 +11,22 @@ function addPokemonImage(pokemon) {
         `
     pokemonListing.append(div)
 }
-
-
-
 let url = "https://pokeapi.co/api/v2/pokemon?limit=50&offset=400"
 fetch(url)
     .then(response => {
         return response.json()
     }).then(parsedResponse => {
-        console.log(parsedResponse)
         const urls = parsedResponse.results.map(result => result.url)
         const fetches = urls.map(url => fetch(url).then(response => response.json()))
         return Promise.all(fetches)
     }).then(responses => {
         spinner.classList.add("hidden")
         responses.forEach(response => {
-            addPokemonImage(response)
-        })
-        .catch((error) => {
-            const $p = document.createElement('p');
-            $p.textContent = "Something went wrong!";
-            document.querySelector('#pokemon-listing').append($p);
-        })    
-
+                addPokemonImage(response)
+            })
+            .catch((error) => {
+                const $p = document.createElement('p');
+                $p.textContent = "Something went wrong!";
+                document.querySelector('#pokemon-listing').append($p);
+            })
     })
-
